@@ -17,7 +17,7 @@ if __name__ == "__main__":
             if geometry:
                 type = geometry[0].tag
                 dims = {k: float(v) for k, v in geometry[0].attrib.items()}
-
+        
         ixx, ixy, ixz, iyy, iyz, izz = 0., 0., 0., 0., 0., 0.
         if type == 'cylinder':
             r = dims['radius']
