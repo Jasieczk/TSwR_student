@@ -19,7 +19,7 @@ class ESO:
         self.states.append(copy(self.state))
         ### TODO implement ESO update
         z_resh = np.reshape(self.state, (len(self.state), 1))
-
+    
         z_dot = self.A@z_resh + self.B@np.atleast_2d(u) + self.L@(q - self.W@z_resh)
 
         self.state = (self.state + self.Tp * np.reshape(z_dot, (1, len(z_dot))))[0]

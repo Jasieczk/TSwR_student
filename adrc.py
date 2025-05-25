@@ -15,33 +15,27 @@ end = 5
 
 # traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
 traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
-# traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
+#traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
 
-b_est_1 = 2.0      # estymowany wpływ wejścia sterującego (znajdź przez eksperyment!)
-b_est_2 = 2.0
-
-omega_n = 12.0     # większa szybkość odpowiedzi
-zeta = 1.0         # krytyczne tłumienie
-b_est_1 = 3.0      # zwiększ wpływ sterowania (jeśli masz np. małą bezwładność)
-b_est_2 = 3.0
-
-kp_est_1 = omega_n**2        # = 144.0
-kp_est_2 = omega_n**2
-kd_est_1 = 2 * zeta * omega_n  # = 24.0
+b_est_1 = 1
+b_est_2 = 10
+zeta = 1
+omega_n = 12
+kp_est_1 = omega_n ** 2
+kp_est_2 = omega_n ** 2
+kd_est_1 = 2 * zeta * omega_n
 kd_est_2 = 2 * zeta * omega_n
-
-
-p1 = 1.0
-p2 = 1.0
-
-b_est_1 = 5
-b_est_2 = 5
-kp_est_1 = 25
-kp_est_2 = 25
-kd_est_1 = 55
-kd_est_2 = 55
 p1 = 100
 p2 = 100
+
+# b_est_1 = 5
+# b_est_2 = 5
+# kp_est_1 = 25
+# kp_est_2 = 25
+# kd_est_1 = 55
+# kd_est_2 = 55
+# p1 = 100
+# p2 = 100
 
 
 q0, qdot0, _ = traj_gen.generate(0.)
